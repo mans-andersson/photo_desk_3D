@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://lu7ptwlue4b4"]
+
+[ext_resource type="Texture2D" uid="uid://b4605x0fmb43n" path="res://textures/wood_floor/WoodFloor011_1K-JPG_Color.jpg" id="1_0lfff"]
+[ext_resource type="Script" path="res://scripts/room.gd" id="1_0ncgn"]
+[ext_resource type="PackedScene" uid="uid://cbr103xk8nfrx" path="res://models_3d/antique_wooden_desk.glb" id="1_42vnc"]
+[ext_resource type="Texture2D" uid="uid://bv3m5g2658tuv" path="res://textures/wood_floor/WoodFloor011_1K-JPG_Roughness.jpg" id="2_p0cce"]
+[ext_resource type="PackedScene" uid="uid://upjlsmi68dmo" path="res://scenes/photo.tscn" id="4_64jb6"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vk83i"]
+size = Vector2(4, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8gwj"]
+albedo_texture = ExtResource("1_0lfff")
+roughness_texture = ExtResource("2_p0cce")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cx8rc"]
+size = Vector3(0.939941, 0.783865, 2.05176)
+
+[node name="Room" type="Node3D"]
+script = ExtResource("1_0ncgn")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999262, 0, 0, 0, 0.999262, 0, 0, 0, 0.999262, 0, 0, 0)
+mesh = SubResource("PlaneMesh_vk83i")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8gwj")
+
+[node name="Desk" parent="." instance=ExtResource("1_42vnc")]
+transform = Transform3D(0.999201, 0, 0, 0, 0.999201, 0, 0, 0, 0.999201, -1.43882, 0, 0)
+
+[node name="RigidBody3D" type="StaticBody3D" parent="Desk"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Desk/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0300293, 0.404753, -0.000908147)
+shape = SubResource("BoxShape3D_cx8rc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.00333456, -0.43336, 0.901215, -0.00160346, 0.901221, 0.433357, -0.999993, -1.16416e-10, -0.00370005, 1.42839, 2.18566, -0.530201)
+light_color = Color(0.563511, 0.698668, 0.621663, 1)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.00848422, -0.832862, 0.553415, 0.00260546, 0.553451, 0.832877, -0.999961, -0.00562442, 0.0068656, -0.821708, 1.42194, -0.0195991)
+fov = 60.0
+
+[node name="Wall_1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.36791e-08, 0.999262, 0, -0.999262, -4.36791e-08, 0, 0, 0, 0.999262, -1.99361, 1.99462, 0)
+mesh = SubResource("PlaneMesh_vk83i")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8gwj")
+
+[node name="lofoten" parent="." instance=ExtResource("4_64jb6")]
+transform = Transform3D(-0.999638, 0, -0.0269125, 0, 1, 0, 0.0269125, 0, -0.999638, -1.24289, 0.798854, 0.418321)
+
+[node name="nyc" parent="." instance=ExtResource("4_64jb6")]
+transform = Transform3D(-0.364124, 0, -0.93135, 0, 1, 0, 0.93135, 0, -0.364124, -1.44123, 0.797762, 0.141529)
+
+[node name="nyc2" parent="." instance=ExtResource("4_64jb6")]
+transform = Transform3D(0.851567, 0, 0.524246, 0, 1, 0, -0.524246, 0, 0.851567, -1.50915, 0.797761, 0.223083)
+
+[node name="yosemite" parent="." instance=ExtResource("4_64jb6")]
+transform = Transform3D(-0.0163033, 0, 0.999867, 0, 1, 0, -0.999867, 0, -0.0163033, -1.41321, 0.799137, -0.0742913)

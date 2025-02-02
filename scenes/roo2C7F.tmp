@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=3 uid="uid://lu7ptwlue4b4"]
+
+[ext_resource type="Texture2D" uid="uid://b4605x0fmb43n" path="res://textures/wood_floor/WoodFloor011_1K-JPG_Color.jpg" id="1_0lfff"]
+[ext_resource type="PackedScene" uid="uid://cbr103xk8nfrx" path="res://models_3d/antique_wooden_desk.glb" id="1_42vnc"]
+[ext_resource type="Texture2D" uid="uid://bv3m5g2658tuv" path="res://textures/wood_floor/WoodFloor011_1K-JPG_Roughness.jpg" id="2_p0cce"]
+[ext_resource type="PackedScene" uid="uid://upjlsmi68dmo" path="res://scenes/photo.tscn" id="4_vmlyq"]
+
+[sub_resource type="GDScript" id="GDScript_bf4cv"]
+script/source = "@tool
+extends Editor
+
+func _ready():
+	load_images_from_directory(\"res://images\", get_node(\"Desk\"))
+
+func load_images_from_directory(path: String, target_node: Node = null) -> void:
+	var dir = DirAccess.open(path)
+	if dir == null:
+		print(\"Error accessing directory: \", path)
+		return
+	
+	dir.list_dir_begin()
+	var file_name = dir.get_next()
+	
+	while file_name != \"\":
+		if file_name.ends_with(\".png\") or file_name.ends_with(\".jpg\"):
+			var image_path = path + \"/\" + file_name
+			print(\"Loading: \", image_path)
+			var texture = load(image_path)
+			
+			if texture != null:
+				var scene = preload(\"res://scenes/photo.tscn\")
+				var instance = scene.instantiate()
+				instance.name = file_name.get_basename()
+				instance.position = Vector3(
+					randf_range(-0.15, 0.25),
+					0.912,
+					randf_range(-0.5, 0.5)
+				)
+				# Adjust the path to SoftBody3D if necessary
+				var soft_body = instance.get_node(\"SoftBody3D\")
+				if soft_body:
+					# Debug prints to verify node and material
+					print(\"SoftBody3D found: \", soft_body)
+					var material = soft_body.get_surface_override_material(0)
+					if material:
+						print(\"Material found, duplicating.\")
+						material = material.duplicate()
+						material.albedo_texture = texture
+						soft_body.set_surface_override_material(0, material)
+					else:
+						print(\"No material on surface 0. Assign a material in the scene.\")
+				else:
+					print(\"SoftBody3D node not found. Check path.\")
+				
+				# Add to target_node if provided, else to self
+				if target_node:
+					target_node.add_child(instance)
+				else:
+					add_child(instance)
+			else:
+				print(\"Failed to load texture: \", image_path)
+		
+		file_name = dir.get_next()
+	
+	dir.list_dir_end()
+"
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vk83i"]
+size = Vector2(4, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8gwj"]
+albedo_texture = ExtResource("1_0lfff")
+roughness_texture = ExtResource("2_p0cce")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cx8rc"]
+size = Vector3(0.939941, 0.783865, 2.05176)
+
+[node name="Room" type="Node3D"]
+script = SubResource("GDScript_bf4cv")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999262, 0, 0, 0, 0.999262, 0, 0, 0, 0.999262, 0, 0, 0)
+mesh = SubResource("PlaneMesh_vk83i")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8gwj")
+
+[node name="Desk" parent="." instance=ExtResource("1_42vnc")]
+transform = Transform3D(0.999201, 0, 0, 0, 0.999201, 0, 0, 0, 0.999201, -1.43882, 0, 0)
+
+[node name="RigidBody3D" type="StaticBody3D" parent="Desk"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Desk/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0300293, 0.404753, -0.000908147)
+shape = SubResource("BoxShape3D_cx8rc")
+
+[node name="lofoten" type="Node3D" parent="Desk" instance=ExtResource("4_vmlyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122622, 0.925, -0.434973)
+
+[node name="nyc" type="Node3D" parent="Desk" instance=ExtResource("4_vmlyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0760067, 0.925, 0.410239)
+
+[node name="nyc2" type="Node3D" parent="Desk" instance=ExtResource("4_vmlyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0505578, 0.925, -0.493236)
+
+[node name="yosemite" type="Node3D" parent="Desk" instance=ExtResource("4_vmlyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.220093, 0.925, 0.4054)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.00333456, -0.43336, 0.901215, -0.00160346, 0.901221, 0.433357, -0.999993, -1.16416e-10, -0.00370005, 1.42839, 2.18566, -0.530201)
+light_color = Color(0.563511, 0.698668, 0.621663, 1)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.00848422, -0.832862, 0.553415, 0.00260546, 0.553451, 0.832877, -0.999961, -0.00562442, 0.0068656, -0.821708, 1.42194, -0.0195991)
+fov = 60.0
+
+[node name="Wall_1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.36791e-08, 0.999262, 0, -0.999262, -4.36791e-08, 0, 0, 0, 0.999262, -1.99361, 1.99462, 0)
+mesh = SubResource("PlaneMesh_vk83i")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8gwj")

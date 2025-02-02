@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://upjlsmi68dmo"]
+
+[ext_resource type="Script" path="res://scripts/photo.gd" id="1_wrnmw"]
+[ext_resource type="Texture2D" uid="uid://byodf378xrvcq" path="res://images/lofoten.png" id="2_448vw"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_23dg5"]
+size = Vector2(0.102, 0.152)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sd84e"]
+albedo_texture = ExtResource("2_448vw")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2x52"]
+size = Vector3(0.102, 0.001, 0.152)
+
+[node name="Photo" type="Node3D"]
+script = ExtResource("1_wrnmw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_23dg5")
+surface_material_override/0 = SubResource("StandardMaterial3D_sd84e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_h2x52")
