@@ -1,15 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2r58fe43u7ud"]
+[gd_scene load_steps=3 format=3 uid="uid://c2r58fe43u7ud"]
 
 [ext_resource type="PackedScene" uid="uid://cd6emj0ghu2di" path="res://sketchfab_imports/antique_wooden_desk/antique_wooden_desk.glb" id="1_6wcy0"]
-[ext_resource type="Material" path="res://sketchfab_imports/antique_wooden_desk/Material.004.tres" id="2_wks43"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_irj0u"]
 size = Vector3(1, 1.99683, 0.752563)
 
 [node name="Antique wooden desk" instance=ExtResource("1_6wcy0")]
-
-[node name="plane_lp_001_Material_004_0" parent="Sketchfab_model/desk_fbx/RootNode/plane_lp_001" index="0"]
-surface_material_override/0 = ExtResource("2_wks43")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Sketchfab_model" index="1"]
 
