@@ -11,28 +11,39 @@ func _ready():
 	_load_image_texture()
 	# Connect to the input_event signal of the StaticBody3D
 	var static_body = get_node("StaticBody3D")
-	static_body.input_event.connect(_on_static_body_input_event)
-
-func _on_static_body_input_event(_camera, event, _position, _normal, _shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			print("Photo clicked:", name)  # Debug print
-			toggle_inspect()
-
-func _mouse_click_on_photo(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var camera = get_viewport().get_camera_3d()
-		if camera:
-			var from = camera.project_ray_origin(event.position)
-			var to = from + camera.project_ray_normal(event.position) * 1000
-			var space = get_world_3d().direct_space_state
-			var query = PhysicsRayQueryParameters3D.create(from, to)
-			var result = space.intersect_ray(query)
-			if result and (result.collider == $StaticBody3D/MeshInstance3D or result.collider == self):
-				print("Clicked on photo:", name)
-				return true
-			return false
 	
+func is_click_on_photo(event: InputEvent) -> bool:
+	if not (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
+		return false
+	
+	var camera = get_viewport().get_camera_3d()
+	if not camera:
+		return false
+	
+	# Perform a raycast from the mouse position
+	var mouse_pos = get_viewport().get_mouse_position()
+	var from = camera.project_ray_origin(mouse_pos)
+	var to = from + camera.project_ray_normal(mouse_pos) * 1000.0
+	var space_state = get_world_3d().direct_space_state
+	var params = PhysicsRayQueryParameters3D.create(from, to)
+	var result = space_state.intersect_ray(params)
+	
+	# Check if the hit collider is THIS photo's StaticBody3D
+	if result and result.collider == get_node("StaticBody3D"):
+		return true
+	return false
+
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if is_inspecting:
+			# If inspecting, clicking anywhere (including other photos) toggles inspect off
+			toggle_inspect()
+		else:
+			# If not inspecting, check if the click was on THIS photo
+			if is_click_on_photo(event):
+				print("Photo clicked:", name)
+				toggle_inspect()
+
 func _load_image_texture():
 	var texture = null
 	var extensions = ["png", "jpg"]
@@ -56,6 +67,7 @@ func _load_image_texture():
 
 func toggle_inspect():
 	is_inspecting = !is_inspecting
+	var light = get_node("OmniLight3D")
 	
 	if is_inspecting:
 		var camera = get_viewport().get_camera_3d()
@@ -84,9 +96,11 @@ func toggle_inspect():
 			tween.set_parallel(true)
 			tween.tween_property(self, "global_position", inspect_position, 0.5)
 			tween.tween_property(self, "rotation", target_rot, 0.5)
+			light.visible = true
 	else:
 		# Tween back to initial state
 		var tween = create_tween()
 		tween.set_parallel(true)
 		tween.tween_property(self, "position", initial_position, 0.5)
 		tween.tween_property(self, "rotation", initial_rotation, 0.5)
+		light.visible = false

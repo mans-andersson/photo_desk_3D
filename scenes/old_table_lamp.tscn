@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://5kqp5nmkchfn"]
+
+[ext_resource type="PackedScene" uid="uid://dggryw2wn3htb" path="res://sketchfab_imports/old_table_lamp/old_table_lamp_v01.glb" id="1_dhy2i"]
+[ext_resource type="Material" uid="uid://0u0kokoj0gos" path="res://sketchfab_imports/old_table_lamp/M_OldTableLamp_V01.tres" id="2_jr1wu"]
+
+[node name="Bankers lamp" instance=ExtResource("1_dhy2i")]
+
+[node name="Object_11" parent="Sketchfab_model/root/GLTF_SceneRootNode/SM_OldTableLamp_V01_4/plafond_3" index="0"]
+surface_material_override/0 = ExtResource("2_jr1wu")

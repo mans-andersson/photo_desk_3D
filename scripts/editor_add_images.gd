@@ -30,7 +30,7 @@ func _run():
 				
 				instance.position = Vector3(
 					randf_range(-1.7, -1.1),
-					randf_range(0.795, 0.8),
+					randf_range(0.8, 0.81),
 					randf_range(-0.8, 0.8)
 				)
 				instance.rotation = (Vector3(0, randf_range(0, 360), 0))

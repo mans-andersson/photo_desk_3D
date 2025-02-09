@@ -8,6 +8,9 @@ size = Vector2(0.102, 0.152)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sd84e"]
 albedo_texture = ExtResource("2_448vw")
+metallic = 0.08
+metallic_specular = 0.55
+roughness = 0.05
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2x52"]
 size = Vector3(0.102, 0.001, 0.152)
@@ -23,3 +26,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_sd84e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_h2x52")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.274538, 0)
+visible = false
+light_energy = 0.2
