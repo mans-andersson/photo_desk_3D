@@ -46,7 +46,7 @@ func _input(event):
 
 func _load_image_texture():
 	var texture = null
-	var extensions = ["png", "jpg"]
+	var extensions = ["png", "jpg", "jpeg"]
 	# Since you named the instance with file_name.get_basename()
 	# We just need to try loading with each extension using the instance's name
 	for ext in extensions:

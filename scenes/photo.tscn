@@ -1,13 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://upjlsmi68dmo"]
+[gd_scene load_steps=5 format=3 uid="uid://upjlsmi68dmo"]
 
 [ext_resource type="Script" path="res://scripts/photo.gd" id="1_wrnmw"]
-[ext_resource type="Texture2D" uid="uid://byodf378xrvcq" path="res://images/lofoten.png" id="2_448vw"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_23dg5"]
 size = Vector2(0.102, 0.152)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sd84e"]
-albedo_texture = ExtResource("2_448vw")
 metallic = 0.08
 metallic_specular = 0.55
 roughness = 0.05

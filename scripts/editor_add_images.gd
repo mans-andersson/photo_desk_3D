@@ -18,7 +18,7 @@ func _run():
 	var file_name = dir.get_next()
 	
 	while file_name != "":
-		if file_name.get_extension() in ["png", "jpg"]:
+		if file_name.get_extension() in ["png", "jpg", "jpeg"]:
 			var image_path = "res://images/" + file_name
 			var texture = load(image_path) as Texture2D
 			texture.resource_local_to_scene = true
@@ -29,11 +29,11 @@ func _run():
 				instance.name = file_name.get_basename()
 				
 				instance.position = Vector3(
-					randf_range(-1.7, -1.1),
+					randf_range(-1.45, -1.1),
 					randf_range(0.8, 0.81),
-					randf_range(-0.8, 0.8)
+					randf_range(-0.4, 0.6)
 				)
-				instance.rotation = (Vector3(0, randf_range(0, 360), 0))
+				instance.rotation = (Vector3(0, randf_range(-90, 390), 0))
 				
 				var soft_body = instance.get_node("StaticBody3D/MeshInstance3D")  # Confirm node path
 				if soft_body:
