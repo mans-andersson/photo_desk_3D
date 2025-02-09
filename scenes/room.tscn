@@ -25,6 +25,11 @@ uv1_scale = Vector3(3, 3, 3)
 [node name="Room" type="Node3D"]
 script = ExtResource("1_0ncgn")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59347, 0)
+light_energy = 0.75
+omni_range = 6.974
+
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.999262, 0, 0, 0, 0.999262, 0, 0, 0, 0.999262, 0, 0, 0)
 mesh = SubResource("PlaneMesh_vk83i")
@@ -47,11 +52,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43289, 0, 0.067388)
 transform = Transform3D(-0.58039, 0, 0.814338, 0, 1, 0, -0.814338, 0, -0.58039, -1.62076, 0.796049, 0.488491)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Bankers lamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0318249, 0.279575, 0.0330133)
-light_energy = 0.9
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.0151099, 0.279575, 0.056466)
+light_energy = 0.2
 light_specular = 0.167
 shadow_enabled = true
 shadow_opacity = 0.78
+omni_range = 1.768
 
 [node name="IMG_0526" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(0.124213, 0, 0.992256, 0, 1, 0, -0.992256, 0, 0.124213, -1.12701, 0.807486, 0.122432)

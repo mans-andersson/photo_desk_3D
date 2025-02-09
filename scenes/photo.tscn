@@ -28,4 +28,4 @@ shape = SubResource("BoxShape3D_h2x52")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.274538, 0)
 visible = false
-light_energy = 0.2
+light_energy = 0.0
