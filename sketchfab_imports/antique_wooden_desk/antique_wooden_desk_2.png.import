@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wx2ocesybrgk"
+uid="uid://b502gqc0fl3ep"
 path.s3tc="res://.godot/imported/antique_wooden_desk_2.png-8255fd31cce1c000799a06888cb928dc.s3tc.ctex"
+path.etc2="res://.godot/imported/antique_wooden_desk_2.png-8255fd31cce1c000799a06888cb928dc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "b9dfeb85a0a0436498778d38573faf8a"
+"md5": "80ecc495181b8b95dbdde0426a57438f"
 }
 
 [deps]
 
 source_file="res://sketchfab_imports/antique_wooden_desk/antique_wooden_desk_2.png"
-dest_files=["res://.godot/imported/antique_wooden_desk_2.png-8255fd31cce1c000799a06888cb928dc.s3tc.ctex"]
+dest_files=["res://.godot/imported/antique_wooden_desk_2.png-8255fd31cce1c000799a06888cb928dc.s3tc.ctex", "res://.godot/imported/antique_wooden_desk_2.png-8255fd31cce1c000799a06888cb928dc.etc2.ctex"]
 
 [params]
 
@@ -27,8 +28,8 @@ compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://models_3d/antique_wooden_desk_2.png"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

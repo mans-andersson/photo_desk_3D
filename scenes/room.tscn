@@ -1,12 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://lu7ptwlue4b4"]
+[gd_scene load_steps=10 format=3 uid="uid://lu7ptwlue4b4"]
 
 [ext_resource type="Texture2D" uid="uid://b4605x0fmb43n" path="res://textures/wood_floor/WoodFloor011_1K-JPG_Color.jpg" id="1_0lfff"]
 [ext_resource type="Script" path="res://scripts/room.gd" id="1_0ncgn"]
-[ext_resource type="PackedScene" uid="uid://cbr103xk8nfrx" path="res://sketchfab_imports/antique_wooden_desk/antique_wooden_desk.glb" id="1_42vnc"]
 [ext_resource type="Texture2D" uid="uid://bv3m5g2658tuv" path="res://textures/wood_floor/WoodFloor011_1K-JPG_Roughness.jpg" id="2_p0cce"]
+[ext_resource type="PackedScene" uid="uid://c2r58fe43u7ud" path="res://scenes/antique_wooden_desk.tscn" id="6_1cttq"]
 [ext_resource type="PackedScene" uid="uid://5kqp5nmkchfn" path="res://scenes/old_table_lamp.tscn" id="6_24mpa"]
 [ext_resource type="PackedScene" uid="uid://upjlsmi68dmo" path="res://scenes/photo.tscn" id="6_nv4ie"]
-[ext_resource type="Script" path="res://scripts/photo.gd" id="7_1twpy"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vk83i"]
 size = Vector2(4, 5)
@@ -16,9 +15,6 @@ resource_local_to_scene = true
 albedo_texture = ExtResource("1_0lfff")
 roughness_texture = ExtResource("2_p0cce")
 uv1_scale = Vector3(3, 3, 3)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cx8rc"]
-size = Vector3(0.939941, 0.783865, 2.05176)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_75jre"]
 resource_local_to_scene = true
@@ -34,15 +30,6 @@ transform = Transform3D(0.999262, 0, 0, 0, 0.999262, 0, 0, 0, 0.999262, 0, 0, 0)
 mesh = SubResource("PlaneMesh_vk83i")
 surface_material_override/0 = SubResource("StandardMaterial3D_a8gwj")
 
-[node name="Desk" parent="." instance=ExtResource("1_42vnc")]
-transform = Transform3D(0.999201, 0, 0, 0, 0.999201, 0, 0, 0, 0.999201, -1.43882, 0, 0)
-
-[node name="RigidBody3D" type="StaticBody3D" parent="Desk"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Desk/RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0300293, 0.404753, -0.000908147)
-shape = SubResource("BoxShape3D_cx8rc")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.00128679, -0.7373, 0.675564, -0.0011791, 0.675563, 0.737302, -0.999999, -0.00174531, -4.27826e-08, -0.758443, 1.39435, 0.0118506)
 current = true
@@ -53,84 +40,69 @@ transform = Transform3D(-4.36791e-08, 0.999262, 0, -0.999262, -4.36791e-08, 0, 0
 mesh = SubResource("PlaneMesh_vk83i")
 surface_material_override/0 = SubResource("StandardMaterial3D_75jre")
 
+[node name="Antique wooden desk" parent="." instance=ExtResource("6_1cttq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43289, 0, 0.067388)
+
 [node name="Bankers lamp" parent="." instance=ExtResource("6_24mpa")]
 transform = Transform3D(-0.58039, 0, 0.814338, 0, 1, 0, -0.814338, 0, -0.58039, -1.62076, 0.796049, 0.488491)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Bankers lamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0318249, 0.279575, 0.0330133)
-light_energy = 0.8
+light_energy = 0.9
 light_specular = 0.167
 shadow_enabled = true
 shadow_opacity = 0.78
 
-[node name="IMG_0526" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="IMG_0526" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(0.124213, 0, 0.992256, 0, 1, 0, -0.992256, 0, 0.124213, -1.12701, 0.807486, 0.122432)
-script = ExtResource("7_1twpy")
 
-[node name="IMG_1055" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="IMG_1055" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(-0.729286, 0, 0.684209, 0, 1, 0, -0.684209, 0, -0.729286, -1.36454, 0.803038, -0.121877)
-script = ExtResource("7_1twpy")
 
-[node name="IMG_1111" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="IMG_1111" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(-0.347521, 0, -0.937672, 0, 1, 0, 0.937672, 0, -0.347521, -1.15392, 0.800663, 0.363668)
-script = ExtResource("7_1twpy")
 
-[node name="IMG_1152" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="IMG_1152" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(-0.999394, 0, 0.034812, 0, 1, 0, -0.034812, 0, -0.999394, -1.24481, 0.802399, 0.41733)
-script = ExtResource("7_1twpy")
 
-[node name="IMG_1308" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="IMG_1308" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(0.552932, 0, 0.833226, 0, 1, 0, -0.833226, 0, 0.552932, -1.41039, 0.808583, 0.501041)
-script = ExtResource("7_1twpy")
 
-[node name="IMG_1600" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="IMG_1600" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(0.708621, 0, -0.705589, 0, 1, 0, 0.705589, 0, 0.708621, -1.29723, 0.80003, 0.105567)
-script = ExtResource("7_1twpy")
 
-[node name="IMG_1890" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="IMG_1890" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(0.454893, 0, 0.890546, 0, 1, 0, -0.890546, 0, 0.454893, -1.44653, 0.805591, -0.193758)
-script = ExtResource("7_1twpy")
 
-[node name="IMG_2305" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="IMG_2305" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(0.993162, 0, 0.116745, 0, 1, 0, -0.116745, 0, 0.993162, -1.42723, 0.806681, -0.37453)
-script = ExtResource("7_1twpy")
 
-[node name="IMG_2556" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="IMG_2556" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(0.980892, 0, 0.194555, 0, 1, 0, -0.194555, 0, 0.980892, -1.12324, 0.800411, -0.296011)
-script = ExtResource("7_1twpy")
 
-[node name="IMG_2805" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="IMG_2805" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(-0.934682, 0, -0.355484, 0, 1, 0, 0.355484, 0, -0.934682, -1.30011, 0.802341, 0.530107)
-script = ExtResource("7_1twpy")
 
-[node name="IMG_3003" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="IMG_3003" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(0.270724, 0, 0.962657, 0, 1, 0, -0.962657, 0, 0.270724, -1.37699, 0.805968, 0.21468)
-script = ExtResource("7_1twpy")
 
-[node name="IMG_3035" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="IMG_3035" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(-0.541772, 0, 0.840525, 0, 1, 0, -0.840525, 0, -0.541772, -1.53366, 0.801671, -0.0315188)
-script = ExtResource("7_1twpy")
 
-[node name="IMG_3104" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="IMG_3104" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(0.592983, 0, -0.805215, 0, 1, 0, 0.805215, 0, 0.592983, -1.21904, 0.803028, -0.100211)
-script = ExtResource("7_1twpy")
 
-[node name="IMG_3240" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="IMG_3240" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(-0.161491, 0, 0.986874, 0, 1, 0, -0.986874, 0, -0.161491, -1.272, 0.808713, 0.257377)
-script = ExtResource("7_1twpy")
 
-[node name="IMG_3490" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="IMG_3490" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(0.467431, 0, -0.88403, 0, 1, 0, 0.88403, 0, 0.467431, -1.51573, 0.802646, 0.166664)
-script = ExtResource("7_1twpy")
 
-[node name="lofoten" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="lofoten" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(0.996909, 0, 0.0785651, 0, 1, 0, -0.0785651, 0, 0.996909, -1.35313, 0.800724, 0.316023)
-script = ExtResource("7_1twpy")
 
-[node name="nyc2" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="nyc2" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(-0.222807, 0, 0.974863, 0, 1, 0, -0.974863, 0, -0.222807, -1.37933, 0.80552, 0.0293679)
-script = ExtResource("7_1twpy")
 
-[node name="yosemite" type="Node3D" parent="." instance=ExtResource("6_nv4ie")]
+[node name="yosemite" parent="." instance=ExtResource("6_nv4ie")]
 transform = Transform3D(0.813518, 0, 0.58154, 0, 1, 0, -0.58154, 0, 0.813518, -1.28469, 0.807903, -0.296284)
-script = ExtResource("7_1twpy")

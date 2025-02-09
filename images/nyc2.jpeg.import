@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5ecxcyjd4o2u"
 path.s3tc="res://.godot/imported/nyc2.jpeg-7c5dbd98a8ffffdce39304133024568e.s3tc.ctex"
+path.etc2="res://.godot/imported/nyc2.jpeg-7c5dbd98a8ffffdce39304133024568e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://images/nyc2.jpeg"
-dest_files=["res://.godot/imported/nyc2.jpeg-7c5dbd98a8ffffdce39304133024568e.s3tc.ctex"]
+dest_files=["res://.godot/imported/nyc2.jpeg-7c5dbd98a8ffffdce39304133024568e.s3tc.ctex", "res://.godot/imported/nyc2.jpeg-7c5dbd98a8ffffdce39304133024568e.etc2.ctex"]
 
 [params]
 

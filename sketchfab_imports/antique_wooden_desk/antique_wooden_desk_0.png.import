@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddk6vw3quo145"
+uid="uid://ia074l7aq2oj"
 path.s3tc="res://.godot/imported/antique_wooden_desk_0.png-109a024917b3d960423d54cc138ad1d2.s3tc.ctex"
+path.etc2="res://.godot/imported/antique_wooden_desk_0.png-109a024917b3d960423d54cc138ad1d2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "232d0b7afa883dbf9089bba2485964a6"
+"md5": "329b419ffe31b0ac2ef1448394ebeec3"
 }
 
 [deps]
 
 source_file="res://sketchfab_imports/antique_wooden_desk/antique_wooden_desk_0.png"
-dest_files=["res://.godot/imported/antique_wooden_desk_0.png-109a024917b3d960423d54cc138ad1d2.s3tc.ctex"]
+dest_files=["res://.godot/imported/antique_wooden_desk_0.png-109a024917b3d960423d54cc138ad1d2.s3tc.ctex", "res://.godot/imported/antique_wooden_desk_0.png-109a024917b3d960423d54cc138ad1d2.etc2.ctex"]
 
 [params]
 
