@@ -59,56 +59,47 @@ shadow_enabled = true
 shadow_opacity = 0.78
 omni_range = 1.768
 
+[node name="alps" parent="." instance=ExtResource("6_nv4ie")]
+transform = Transform3D(0.999586, 0, 0.0287753, 0, 1, 0, -0.0287753, 0, 0.999586, -1.17549, 0.80568, -0.327583)
+
 [node name="IMG_0526" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(0.124213, 0, 0.992256, 0, 1, 0, -0.992256, 0, 0.124213, -1.12701, 0.807486, 0.122432)
+transform = Transform3D(-0.939912, 0, 0.341415, 0, 1, 0, -0.341415, 0, -0.939912, -1.13724, 0.808408, -0.125186)
 
 [node name="IMG_1055" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(-0.729286, 0, 0.684209, 0, 1, 0, -0.684209, 0, -0.729286, -1.36454, 0.803038, -0.121877)
+transform = Transform3D(0.562005, 0, 0.827134, 0, 1, 0, -0.827134, 0, 0.562005, -1.4182, 0.809964, -0.0300566)
 
 [node name="IMG_1111" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(-0.347521, 0, -0.937672, 0, 1, 0, 0.937672, 0, -0.347521, -1.15392, 0.800663, 0.363668)
+transform = Transform3D(0.992905, 0, 0.11891, 0, 1, 0, -0.11891, 0, 0.992905, -1.34279, 0.807909, -0.316818)
 
 [node name="IMG_1152" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(-0.999394, 0, 0.034812, 0, 1, 0, -0.034812, 0, -0.999394, -1.24481, 0.802399, 0.41733)
+transform = Transform3D(-0.703853, 0, 0.710346, 0, 1, 0, -0.710346, 0, -0.703853, -1.44549, 0.808241, -0.149212)
 
 [node name="IMG_1308" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(0.552932, 0, 0.833226, 0, 1, 0, -0.833226, 0, 0.552932, -1.41039, 0.808583, 0.501041)
+transform = Transform3D(-0.999172, 0, 0.0406746, 0, 1, 0, -0.0406746, 0, -0.999172, -1.49779, 0.801379, 0.268131)
 
 [node name="IMG_1600" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(0.708621, 0, -0.705589, 0, 1, 0, 0.705589, 0, 0.708621, -1.29723, 0.80003, 0.105567)
+transform = Transform3D(-0.862669, 0, 0.505768, 0, 1, 0, -0.505768, 0, -0.862669, -1.25282, 0.800171, -0.0282264)
 
 [node name="IMG_1890" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(0.454893, 0, 0.890546, 0, 1, 0, -0.890546, 0, 0.454893, -1.44653, 0.805591, -0.193758)
-
-[node name="IMG_2305" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(0.993162, 0, 0.116745, 0, 1, 0, -0.116745, 0, 0.993162, -1.42723, 0.806681, -0.37453)
+transform = Transform3D(0.89935, 0, 0.437229, 0, 1, 0, -0.437229, 0, 0.89935, -1.33876, 0.800883, 0.326074)
 
 [node name="IMG_2556" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(0.980892, 0, 0.194555, 0, 1, 0, -0.194555, 0, 0.980892, -1.12324, 0.800411, -0.296011)
+transform = Transform3D(-0.913417, 0, -0.407024, 0, 1, 0, 0.407024, 0, -0.913417, -1.16761, 0.80604, 0.23071)
 
 [node name="IMG_2805" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(-0.934682, 0, -0.355484, 0, 1, 0, 0.355484, 0, -0.934682, -1.30011, 0.802341, 0.530107)
-
-[node name="IMG_3003" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(0.270724, 0, 0.962657, 0, 1, 0, -0.962657, 0, 0.270724, -1.37699, 0.805968, 0.21468)
+transform = Transform3D(-0.0762519, 0, -0.997089, 0, 1, 0, 0.997089, 0, -0.0762519, -1.44232, 0.808232, 0.17599)
 
 [node name="IMG_3035" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(-0.541772, 0, 0.840525, 0, 1, 0, -0.840525, 0, -0.541772, -1.53366, 0.801671, -0.0315188)
-
-[node name="IMG_3104" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(0.592983, 0, -0.805215, 0, 1, 0, 0.805215, 0, 0.592983, -1.21904, 0.803028, -0.100211)
-
-[node name="IMG_3240" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(-0.161491, 0, 0.986874, 0, 1, 0, -0.986874, 0, -0.161491, -1.272, 0.808713, 0.257377)
+transform = Transform3D(-0.69789, 0, -0.716205, 0, 1, 0, 0.716205, 0, -0.69789, -1.25165, 0.807581, -0.200821)
 
 [node name="IMG_3490" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(0.467431, 0, -0.88403, 0, 1, 0, 0.88403, 0, 0.467431, -1.51573, 0.802646, 0.166664)
+transform = Transform3D(-0.996592, 0, 0.0824849, 0, 1, 0, -0.0824849, 0, -0.996592, -1.22974, 0.806418, 0.142753)
 
 [node name="lofoten" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(0.996909, 0, 0.0785651, 0, 1, 0, -0.0785651, 0, 0.996909, -1.35313, 0.800724, 0.316023)
+transform = Transform3D(0.637623, 0, 0.770349, 0, 1, 0, -0.770349, 0, 0.637623, -1.1533, 0.807098, 0.0574794)
 
 [node name="nyc2" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(-0.222807, 0, 0.974863, 0, 1, 0, -0.974863, 0, -0.222807, -1.37933, 0.80552, 0.0293679)
+transform = Transform3D(0.90182, 0, -0.432112, 0, 1, 0, 0.432112, 0, 0.90182, -1.19969, 0.806634, 0.367082)
 
 [node name="yosemite" parent="." instance=ExtResource("6_nv4ie")]
-transform = Transform3D(0.813518, 0, 0.58154, 0, 1, 0, -0.58154, 0, 0.813518, -1.28469, 0.807903, -0.296284)
+transform = Transform3D(-0.990924, 0, -0.134425, 0, 1, 0, 0.134425, 0, -0.990924, -1.40697, 0.801045, 0.0196975)

@@ -4,9 +4,8 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d01bt4vo3mitl"
 path.s3tc="res://.godot/imported/old_table_lamp_v01_3.png-48d051dc1c4a1fa1155068d69bd8a26d.s3tc.ctex"
-path.etc2="res://.godot/imported/old_table_lamp_v01_3.png-48d051dc1c4a1fa1155068d69bd8a26d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -16,7 +15,7 @@ generator_parameters={
 [deps]
 
 source_file="res://sketchfab_imports/old_table_lamp/old_table_lamp_v01_3.png"
-dest_files=["res://.godot/imported/old_table_lamp_v01_3.png-48d051dc1c4a1fa1155068d69bd8a26d.s3tc.ctex", "res://.godot/imported/old_table_lamp_v01_3.png-48d051dc1c4a1fa1155068d69bd8a26d.etc2.ctex"]
+dest_files=["res://.godot/imported/old_table_lamp_v01_3.png-48d051dc1c4a1fa1155068d69bd8a26d.s3tc.ctex"]
 
 [params]
 
