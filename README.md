@@ -1,7 +1,7 @@
 # Photo Desk 3D
 
 ## Create your own version
-1. Put your images in the `/images` directory
+1. Create a directory called `images` and put your images in it
 2. Open the project in the Godot engine
 3. Open up `scripts/editor_add_images.gd` in the script editor
 4. Run the script (press Ctrl+Shift+X)
