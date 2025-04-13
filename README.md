@@ -2,7 +2,7 @@
 
 ## Create your own version
 1. Create a directory called `images` and put your images in it
-2. Open the project in the Godot engine
+2. Open the project in the Godot engine (version 4.4 or later)
 3. Open up `scripts/editor_add_images.gd` in the script editor
 4. Run the script (press Ctrl+Shift+X)
 5. The images has now been added in random positions across the desk. Inspect in the 3D view or click play.
